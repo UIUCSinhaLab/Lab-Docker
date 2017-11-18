@@ -20,7 +20,7 @@ then
 else
 	echo "GETTING fasta and _creating_ 2bit"
 
-	wget "${TARGET_DIR}/${NAME}/bigZips/${NAME}.fa.gz"
+	wget "${TARGET_DIR}/${NAME}.fa.gz"
 	gunzip "${NAME}.fa.gz"
 	faToTwoBit "${NAME}.fa" ${NAME}.2bit
 	rm "${NAME}.fa"
