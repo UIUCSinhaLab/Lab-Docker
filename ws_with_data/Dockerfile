@@ -2,6 +2,8 @@ FROM genome_workspace
 
 MAINTAINER Bryan Lunt <bjlunt2@illinois.edu>
 
+ADD get_2bit_or_fa.bash /root/
+
 #Copied from debian miniconda ftps://github.com/conda/conda-docker/blob/master/miniconda3/debian/Dockerfile
 RUN apt-get update && apt-get install -y vim less && apt-get autoclean
 
@@ -10,7 +12,8 @@ RUN mkdir -p /BioDATA/fly/ && \
 		( curl 'ftp://hgdownload.soe.ucsc.edu/goldenPath/' | awk '$9~/dro/; $9~/dm/; $9~/dp/;' > getList.txt ) && \
 		for i in `awk '{print $9;}' getList.txt`; \
 		do \
-			wget 'ftp://hgdownload.soe.ucsc.edu/goldenPath/'${i}'/bigZips/*.2bit' && \
+			#wget 'ftp://hgdownload.soe.ucsc.edu/goldenPath/'${i}'/bigZips/*.2bit' && \
+			/root/get_2bit_or_fa.bash ${i} && \
 			wget 'ftp://hgdownload.soe.ucsc.edu/goldenPath/'${i}'/liftOver/*.chain.gz' ; \
 		done && \
 	echo "DONE Downloading" )

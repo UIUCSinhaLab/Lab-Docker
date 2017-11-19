@@ -1,4 +1,4 @@
-FROM miniconda3
+FROM bioconda3
 
 MAINTAINER Bryan Lunt <bjlunt2@illinois.edu>
 
