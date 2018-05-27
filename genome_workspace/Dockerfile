@@ -1,4 +1,4 @@
-FROM bioconda3
+FROM ubuntu:latest
 
 MAINTAINER Bryan Lunt <bjlunt2@illinois.edu>
 

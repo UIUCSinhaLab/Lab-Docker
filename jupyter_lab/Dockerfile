@@ -22,4 +22,4 @@ WORKDIR /home/labuser
 
 VOLUME ["/mnt/shared"]
 
-CMD ["jupyter", "notebook","--ip","0.0.0.0", "--port", "8888"]
+CMD ["jupyter", "lab","--ip","0.0.0.0", "--port", "8888"]
